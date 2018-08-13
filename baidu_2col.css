@@ -17,7 +17,7 @@ iframe,
     margin-right: -6%;
 }
 body {
-    background-color: #e7f7e7;   /* 背景色整体绿色 */
+    background-color: #f7fffc;   /* 背景色整体淡淡的绿色 */
 }
 #form .bdsug{
     width: 76%;
@@ -91,8 +91,10 @@ a em {
     -webkit-box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1);
     -moz-box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1);
 }
-#content_left .result-op:hover,#content_left .result:hover{
-    box-shadow:0 0 10px gray;background:rgba(230,230,230,0.7)!important;        /* 鼠标悬停底色变化和阴影扩大 */
+#content_left .result-op:hover,
+#content_left .result:hover{
+    box-shadow:0 0 30px gray;
+	background:#fcd2d2 !important;        /* 鼠标悬停底色变化和阴影扩大 */
 }
 #content_left .c-container[tpl='soft'] .op-soft-title,
 #content_left .c-container h3 {
