@@ -96,7 +96,7 @@ a em {
 }
 #content_left .c-container[tpl='soft'] .op-soft-title,
 #content_left .c-container h3 {
-    background-color: #f8f8f8;
+    background-color: #fcebeb;				/* box标题背景色 */
     margin: 0px -20px 10px -20px;
     padding: 8px 20px 5px;
     border-radius: 5px 5px 0px 0px;
@@ -369,7 +369,7 @@ a em {
     position: relative;
     padding-left: 3%; /* 搜索结果页边距 */
     float: unset;
-    width: 92%; /* 搜索结果页整体宽度 */
+    width: 95%; /* 搜索结果页整体宽度 */
 }
 #content_right{
     display:none !important;
