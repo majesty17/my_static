@@ -351,7 +351,7 @@ a em {
     max-width: 670px;
     padding: 0px 20px 15px;
     margin-top: 0px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;				/* 卡片的上下间距 */
     border-radius: 5px;
     background-color: #fff7f7;			/* box的body背景色 */
     box-sizing: border-box;
@@ -364,7 +364,7 @@ a em {
     max-width: 670px;
     padding: 0px 20px 15px;
     margin-top: 0px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;				/* 卡片的上下间距 */
     border-radius: 5px;
     background-color: #fff7f7;			/* box的body背景色 */
     box-sizing: border-box;
