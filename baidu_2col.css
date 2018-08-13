@@ -367,9 +367,9 @@ a em {
 #content_left {
     margin: 0 auto;
     position: relative;
-    padding-left: 5%;
+    padding-left: 3%; /* 搜索结果页边距 */
     float: unset;
-    width: 80%;
+    width: 92%; /* 搜索结果页整体宽度 */
 }
 #content_right{
     display:none !important;
