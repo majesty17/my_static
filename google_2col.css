@@ -21,7 +21,7 @@ iframe,
 }
 /******************* 初始化 *******************/
 body {
-    background-color: #fDfDfD;
+    background-color: #e7f7e7;
 }
 #form .bdsug{
     width: 76%;
@@ -306,7 +306,7 @@ a em {
         opacity: 1;
     }
 }
-#center_col>*{padding-left:8%;padding-right:8%;}
+#center_col>*{padding-left:4%;padding-right:4%;}		/*两边距*/
 .bkWMgd>div:not([class]){
     width: 730px;
 }
@@ -398,7 +398,7 @@ a em {
     width: 45% !important;
 }
 #double {
-    width: 47%;
+    width: 49%;							/*右侧栏的宽度*/
     margin-left: 49%;
     position: absolute;
     max-width: 670px;
