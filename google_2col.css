@@ -102,7 +102,7 @@ a em {
     max-width:unset;
 }
 .bkWMgd .g:hover{
-    box-shadow:0 0 2px gray;background:rgba(230,230,230,0.1)!important;
+    box-shadow:0 0 8px gray;background:rgba(230,230,230,0.7)!important;
 }
 .bkWMgd .g[tpl='soft'] .op-soft-title,
 .bkWMgd .g h3 {
@@ -411,7 +411,7 @@ a em {
     margin-top: 0px;
     margin-bottom: 40px;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: #fcefff;
     box-sizing: border-box;
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1);
     -webkit-box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1);
