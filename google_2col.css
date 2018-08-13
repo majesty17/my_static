@@ -106,7 +106,7 @@ a em {
 }
 .bkWMgd .g[tpl='soft'] .op-soft-title,
 .bkWMgd .g h3 {
-    background-color: #f8f8f8;
+    background-color: #ecd4ff;				/* box标题背景色 */
     margin: 0px -20px 10px -20px;
     padding: 8px 20px 5px;
     border-radius: 5px 5px 0px 0px;
@@ -424,7 +424,7 @@ a em {
     margin-top: 0px !important;
     margin-bottom: 40px !important;
     border-radius: 5px !important;
-    background-color: #fff !important;
+    background-color: #fcefff !important;
     box-sizing: border-box !important;
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1) !important;
     -webkit-box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1) !important;
