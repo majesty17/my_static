@@ -31,7 +31,7 @@ a em {
 
 #head,
 #s_tab {
-    background-color: #f8f8f8;
+    background-color: rgba(255,255,255,0.4);		/* 头部透明效果 */
 }
 #head {
     border-bottom: none;
