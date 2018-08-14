@@ -375,3 +375,11 @@ a em {
 .c-container h3 a{
     z-index:1;
 }
+
+/* myuser */
+#myuser{
+    background-color: rgba(72, 121, 189, .3);
+    padding:2px 12px 2px;
+    border-radius: 3px;
+}
+
