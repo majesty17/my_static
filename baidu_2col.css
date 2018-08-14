@@ -376,10 +376,10 @@ a em {
     z-index:1;
 }
 
-/* myuser */
+/* 辅助按钮 */
 #myuser{
     background-color: rgba(72, 121, 189, .3);
-    padding:2px 8px 2px;
+    padding:3px 6px 3px;
     border-radius: 3px;
 }
 #myuser:hover{
