@@ -3,7 +3,7 @@
 // @description     1.繞過百度、搜狗、谷歌、好搜搜索結果中的自己的跳轉鏈接，直接訪問原始網頁-反正都能看懂 2.去除百度的多余广告 3.添加Favicon显示 4.页面CSS 5.添加计数 6.开关选择以上功能
 // @icon            https://coding.net/u/zb227/p/zbImg/git/raw/master/img0/icon.jpg
 // @author          Majesty
-// @create          2015-11-25
+// @create          2018-08-14
 // @run-at          document-start
 // @version         0.0.1
 // @connect         www.baidu.com
@@ -39,10 +39,9 @@
 	);// Favicon放在xx位置
 
 	var isFaviconEnable = true; // 是否开启favicon图标功能
-	var defaultFaviconUrl = "https://ws1.sinaimg.cn/large/6a155794ly1foijtdzhxhj200w00wjr5.jpg";
+	var defaultFaviconUrl = "https://ws1.sinaimg.cn/large/6a155794ly1foijtdzhxhj200w00wjr5.jpg";/*默认ico*/
 	var valueLock = false; // 避免数据同时读取和写入时导致的死锁，然后致使页面死循环
 	var onResizeLocked = false;
-
 	var isGoogleImageUrl = false;
 
 
@@ -55,7 +54,8 @@
 		BAIDU:1,
 		GOOGLE:4,
 	};
-	var BaiduVersion = " V" + GM_info.script.version;
+    var kw="";         //关键词
+
 	var insertLocked = false;
 	var oldCenter_colWidth = 0;
 	if (location.host.indexOf("www.baidu.com") > -1) {
@@ -97,9 +97,7 @@
 		AC_addStyle('#sp-ac-container{z-index:999999!important;text-align:left!important;background-color:white;}#sp-ac-container *{font-size:13px!important;color:black!important;float:none!important;}#sp-ac-main-head{position:relative!important;top:0!important;left:0!important;}#sp-ac-span-info{position:absolute!important;right:1px!important;top:0!important;font-size:10px!important;line-height:10px!important;background:none!important;font-style:italic!important;color:#5a5a5a!important;text-shadow:white 0px 1px 1px!important;}#sp-ac-container input{vertical-align:middle!important;display:inline-block!important;outline:none!important;height:auto !important;padding:0px !important;margin-bottom:0px !important;margin-top: 0px !important;}#sp-ac-container input[type="number"]{width:50px!important;text-align:left!important;}#sp-ac-container input[type="checkbox"]{border:1px solid #B4B4B4!important;padding:1px!important;margin:3px!important;width:13px!important;height:13px!important;background:none!important;cursor:pointer!important;visibility:visible !important;position:static !important;}#sp-ac-container input[type="button"]{border:1px solid #ccc!important;cursor:pointer!important;background:none!important;width:auto!important;height:auto!important;}#sp-ac-container li{list-style:none!important;margin:3px 0!important;border:none!important;float:none!important;}#sp-ac-container fieldset{border:2px groove #ccc!important;-moz-border-radius:3px!important;border-radius:3px!important;padding:4px 9px 6px 9px!important;margin:2px!important;display:block!important;width:auto!important;height:auto!important;}#sp-ac-container legend{line-height:20px !important;margin-bottom:0px !important;}#sp-ac-container fieldset>ul{padding:0!important;margin:0!important;}#sp-ac-container ul#sp-ac-a_useiframe-extend{padding-left:40px!important;}#sp-ac-rect{position:relative!important;top:0!important;left:0!important;float:right!important;height:10px!important;width:10px!important;padding:0!important;margin:0!important;-moz-border-radius:3px!important;border-radius:3px!important;border:1px solid white!important;-webkit-box-shadow:inset 0 5px 0 rgba(255,255,255,0.3),0 0 3px rgba(0,0,0,0.8)!important;-moz-box-shadow:inset 0 5px 0 rgba(255,255,255,0.3),0 0 3px rgba(0,0,0,0.8)!important;box-shadow:inset 0 5px 0 rgba(255,255,255,0.3),0 0 3px rgba(0,0,0,0.8)!important;opacity:0.8!important;}#sp-ac-dot,#sp-ac-cur-mode{position:absolute!important;z-index:9999!important;width:5px!important;height:5px!important;padding:0!important;-moz-border-radius:3px!important;border-radius:3px!important;border:1px solid white!important;opacity:1!important;-webkit-box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3),0px 1px 2px rgba(0,0,0,0.9)!important;-moz-box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3),0px 1px 2px rgba(0,0,0,0.9)!important;box-shadow:inset 0 -2px 1px rgba(0,0,0,0.3),inset 0 2px 1px rgba(255,255,255,0.3),0px 1px 2px rgba(0,0,0,0.9)!important;}#sp-ac-dot{right:-3px!important;top:-3px!important;}#sp-ac-cur-mode{left:-3px!important;top:-3px!important;width:6px!important;height:6px!important;}#sp-ac-content{padding:0!important;margin:5px 5px 0 0!important;-moz-border-radius:3px!important;border-radius:3px!important;border:1px solid #A0A0A0!important;-webkit-box-shadow:-2px 2px 5px rgba(0,0,0,0.3)!important;-moz-box-shadow:-2px 2px 5px rgba(0,0,0,0.3)!important;box-shadow:-2px 2px 5px rgba(0,0,0,0.3)!important;}#sp-ac-main{padding:5px!important;border:1px solid white!important;-moz-border-radius:3px!important;border-radius:3px!important;background-color:#F2F2F7!important;background:-moz-linear-gradient(top,#FCFCFC,#F2F2F7 100%)!important;background:-webkit-gradient(linear,0 0,0 100%,from(#FCFCFC),to(#F2F2F7))!important;}#sp-ac-foot{position:relative!important;left:0!important;right:0!important;min-height:20px!important;}#sp-ac-savebutton{position:absolute!important;top:0!important;right:2px!important;}#sp-ac-container .sp-ac-spanbutton{border:1px solid #ccc!important;-moz-border-radius:3px!important;border-radius:3px!important;padding:2px 3px!important;cursor:pointer!important;background-color:#F9F9F9!important;-webkit-box-shadow:inset 0 10px 5px white!important;-moz-box-shadow:inset 0 10px 5px white!important;box-shadow:inset 0 10px 5px white!important;}label[class="newFunc"]{color:blue !important;}', "ac-MENU");
 	}
 	AutoRefresh();
-	GM_registerMenuCommand('AC-重定向脚本设置', function () {
-		document.querySelector("#sp-ac-content").style.display = 'block';
-	});
+
 	function rapidDeal(){
 		try{
 			if (insertLocked == false && SiteTypeID != SiteType.OTHERS) {
@@ -115,6 +113,7 @@
 		}catch (e){console.log(e);}
 	}
 	function ACHandle() {
+        InsertSettingMenu();
 		if(SiteTypeID == SiteType.OTHERS) return;
 		if (true) { //必开重定向
 			if(Stype_Normal != null && Stype_Normal != "") resetURLNormal(document.querySelectorAll(Stype_Normal)); // 百度搜狗去重定向-普通模式【注意不能为document.query..】
@@ -181,17 +180,6 @@
 		}, 50);
 	}
 
-	function getUrlAttribute(url, attribute, needDecode){
-		var searchValueS = (url.substr(1) + "").split("&");
-		for (var i = 0; i < searchValueS.length; i++) {
-			var key_value = searchValueS[i].split("=");
-			var reg = new RegExp("^"+attribute+"$");
-			if (reg.test(key_value[0])) {
-				var searchWords = key_value[1];
-				return needDecode?decodeURIComponent(searchWords):searchWords;
-			}
-		}
-	}
 	function resetURLNormal(list) {
 		for (var i = 0; i < list.length; i++) {
 			// 此方法是异步，故在结束的时候使用i会出问题-严重!
@@ -280,6 +268,22 @@
 			try{$('#content_left>div').has('span:contains("广告")').remove();}catch (e) {}
 		}
 	}
+
+    function getKeyword(){
+        if(SiteTypeID == SiteType.BAIDU){
+            var url=location.href;
+            try{
+                url=url.substring(url.search("wd="));
+                url=url.substring(3,url.search('&'));
+                return url;
+            }catch(e){console.warning("get keyword error!");}
+        }
+        else{
+            return "";
+        }
+    }
+
+
 	function IsNumber(val){
 		if(val === "" || val ==null){
 			return false;
@@ -304,6 +308,33 @@
 		send = sbefore.replace(/(\/[^/]*|\s*)/, "").replace(/<[^>]*>/g, "").replace(/https?:\/\//g, "").replace(/<\/?strong>/g, "").replace(/<\/?b>/g, "").replace(/<?>?/g, "").replace(/( |\/).*/g, "");
 		return send;
 	}
+
+
+    /* 页面上增加自定义按钮 */
+    function InsertSettingMenu(){
+		if (document.querySelector("#myuser") == null) {
+			try{
+
+                //var kw=document.getElementById('kw').value;
+                var kw=getKeyword();
+				var parent = document.querySelector("#u, #gbw>div>div");
+				parent.style="width: auto;";
+				var userAdiv = document.createElement("a");
+				userAdiv.style = "text-decoration: none;";
+				//userAdiv.innerHTML = "<span id='myuser' style='display: inline-block;'><span class='myuserconfig' style='display: inline-block;height: 18px;line-height: 1.5;background: #2866bd;color: #fff;font-weight: bold;text-align: center;padding: 6px;'>自定义</span><a >tes</a></span></span>";
+                var inner="<a href='https://www.so.com/s?ie=utf-8&q="+kw+"' target='_blank'><img src='https://www.so.com/favicon.ico' height='20px'></img></a>";
+                inner=inner+"<a href='https://www.sogou.com/web?query="+kw+"' target='_blank'><img src='https://www.sogou.com/favicon.ico'  height='20px'></img></a>";
+                inner=inner+"<a href='https://www.google.com.hk/search?q="+kw+"' target='_blank'><img src='https://www.google.com.hk/favicon.ico'  height='20px'></img></a>";
+                inner=inner+"<a href='https://cn.bing.com/search?q="+kw+"' target='_blank'><img src='https://cn.bing.com/favicon.ico'  height='20px'></img></a>";
+                userAdiv.innerHTML="<span id='myuser' style='display: inline-block;'>"+inner+"</span>"
+				parent.insertBefore(userAdiv, parent.childNodes[0]);
+
+			}catch (e){
+                console.log("insert button error");
+            }
+		}
+	}
+
 
 	function addFavicon(citeList) {
 		for (var index = 0; index < citeList.length; index++) {
@@ -475,7 +506,7 @@
                     this.twoPageDisplay();
                     StyleManger.loadTwoPageStyle();
                     StyleManger.loadCommonStyle();
-					
+
 					setTimeout(function() {
 						valueLock = false;
 					}, 30);
