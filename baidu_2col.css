@@ -246,12 +246,14 @@ a em {
 #rs table tr a:hover {
     text-decoration: underline;
 }
-#page {
+#page {				/* 翻页栏的设置 */
     min-width: 710px;
     height: 40px;
     line-height: 40px;
-    padding-top: 5px;
-    margin: 0px 0px 50px 80px;
+    padding: 5px 10px;
+    margin-top: 25px;
+    text-align: center;
+    position: relative;
 }
 .op-img-address-desktop-cont{
     overflow: hidden;
@@ -330,15 +332,6 @@ a em {
 #rs {
     position: relative;
     margin: 0 auto;
-}
-#page {
-    min-width: 710px;
-    height: 40px;
-    line-height: 40px;
-    padding: 5px 10px;
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
 }
 #double {
     width: 47%;
