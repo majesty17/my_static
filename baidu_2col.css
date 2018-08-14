@@ -376,13 +376,18 @@ a em {
     z-index:1;
 }
 
-/* 辅助按钮 */
+/* 辅助按钮样式	 */
 #myuser{
     background-color: rgba(72, 121, 189, .3);
     padding:3px 6px 3px;
     border-radius: 3px;
 }
+/* 辅助按钮悬停效果 */
 #myuser:hover{
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
     background-color: rgba(72, 121, 189, .4);
+}
+/* 右上角整体顶部margin */
+#u{
+    margin-top:15px;				
 }
