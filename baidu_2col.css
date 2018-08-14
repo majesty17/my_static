@@ -224,7 +224,6 @@ a em {
     transition: width 350ms, left 350ms;
 }
 #rs {
-    margin-top: 0px;
     padding: 0px 20px 15px;
     border-radius: 5px;
     position: relative;
