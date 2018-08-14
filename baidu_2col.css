@@ -92,8 +92,8 @@ a em {
 }
 #content_left>.c-container:hover,
 #content_left>#double>.c-container:hover{
-    box-shadow:0 0 30px gray;
-	background:#f5cbff !important;        /* 鼠标悬停底色变化和阴影扩大 */
+    box-shadow:0 0 23px red;
+	background:#f3dff7 !important;        /* 鼠标悬停底色变化和阴影扩大 */
 }
 #content_left .c-container[tpl='soft'] .op-soft-title,
 #content_left .c-container h3 {
