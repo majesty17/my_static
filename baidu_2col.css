@@ -16,7 +16,7 @@ iframe,
 }
 
 body {
-    background-color: #f7fffc;   /* 背景色整体淡淡的绿色 */
+    background-color: #e7f7e7;   /* 背景色整体淡淡的绿色 */
 }
 #form .bdsug{
     width: 76%;
@@ -93,11 +93,11 @@ a em {
 #content_left>.c-container:hover,
 #content_left>#double>.c-container:hover{
     box-shadow:0 0 30px gray;
-	background:#fcd2d2 !important;        /* 鼠标悬停底色变化和阴影扩大 */
+	background:#f5cbff !important;        /* 鼠标悬停底色变化和阴影扩大 */
 }
 #content_left .c-container[tpl='soft'] .op-soft-title,
 #content_left .c-container h3 {
-    background-color: #fcebeb;				/* box标题背景色 */
+    background-color: #ecd4ff;				/* box标题背景色 */
     margin: 0px -20px 10px -20px;
     padding: 8px 20px 5px;
     border-radius: 5px 5px 0px 0px;
@@ -353,7 +353,7 @@ a em {
     margin-top: 0px;
     margin-bottom: 30px;				/* 卡片的上下间距 */
     border-radius: 5px;
-    background-color: #fff7f7;			/* box的body背景色 */
+    background-color: #fcefff;			/* box的body背景色 */
     box-sizing: border-box;
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1);
     -webkit-box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1);
@@ -366,7 +366,7 @@ a em {
     margin-top: 0px;
     margin-bottom: 30px;				/* 卡片的上下间距 */
     border-radius: 5px;
-    background-color: #fff7f7;			/* box的body背景色 */
+    background-color: #fcefff;			/* box的body背景色 */
     box-sizing: border-box;
     box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1);
     -webkit-box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1);
