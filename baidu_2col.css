@@ -227,7 +227,10 @@ a em {
     margin-top: 0px;
     padding: 0px 20px 15px;
     border-radius: 5px;
+    position: relative;
+    margin: 0 auto;
 }
+
 #rs .tt {
     margin: 0px -20px 5px -20px;
     padding: 5px 20px;
@@ -329,10 +332,7 @@ a em {
 #content_right{
     display:none !important;
 }
-#rs {
-    position: relative;
-    margin: 0 auto;
-}
+
 #double {
     width: 47%;
     margin-left: 49%;
@@ -368,6 +368,8 @@ a em {
 .c-container h3 a{
     z-index:1;
 }
+
+/*********************************************************/
 
 /* 辅助按钮样式	 */
 #myuser{
