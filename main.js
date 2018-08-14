@@ -54,7 +54,6 @@
 		BAIDU:1,
 		GOOGLE:4,
 	};
-    var kw="";         //关键词
 
 	var insertLocked = false;
 	var oldCenter_colWidth = 0;
@@ -284,17 +283,6 @@
     }
 
 
-	function IsNumber(val){
-		if(val === "" || val ==null){
-			return false;
-		}
-		if(!isNaN(val)){
-			return true;
-		}else{
-			return false;
-		}
-	}
-
 	function safeRemove(cssSelector){
 		try {
 			document.querySelector(cssSelector).remove();
@@ -324,10 +312,13 @@
 				//userAdiv.innerHTML = "<span id='myuser' style='display: inline-block;'><span class='myuserconfig' style='display: inline-block;height: 18px;line-height: 1.5;background: #2866bd;color: #fff;font-weight: bold;text-align: center;padding: 6px;'>自定义</span><a >tes</a></span></span>";
                 var inner="<a href='https://www.so.com/s?ie=utf-8&q="+kw+"' target='_blank'><img src='https://www.so.com/favicon.ico' height='20px'></img></a>";
                 inner=inner+"<a href='https://www.sogou.com/web?query="+kw+"' target='_blank'><img src='https://www.sogou.com/favicon.ico'  height='20px'></img></a>";
-                inner=inner+"<a href='https://www.google.com.hk/search?q="+kw+"' target='_blank'><img src='https://www.google.com.hk/favicon.ico'  height='20px'></img></a>";
+                inner=inner+"<a href='https://www.google.com.hk/search?q="+kw+"' target='_blank'><img src='http://www.google.cn/favicon.ico'  height='20px'></img></a>";
                 inner=inner+"<a href='https://cn.bing.com/search?q="+kw+"' target='_blank'><img src='https://cn.bing.com/favicon.ico'  height='20px'></img></a>";
+                //inner=inner+"<img class='btn_tool_bing' onClick='alert(location.href);' src='https://cn.bing.com/favicon.ico' height='20px'></img>";
                 userAdiv.innerHTML="<span id='myuser' style='display: inline-block;'>"+inner+"</span>"
 				parent.insertBefore(userAdiv, parent.childNodes[0]);
+
+
 
 			}catch (e){
                 console.log("insert button error");
